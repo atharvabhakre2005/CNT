@@ -14,7 +14,7 @@ public class MultiTCPServer {
         new Thread(() -> startFileServer()).start();
     }
 
-    // HELLO SERVER  (Port 5000)
+    // HELLO SERVER (Port 5000)
     public static void startHelloServer() {
         try {
             ServerSocket ss = new ServerSocket(5000);
@@ -38,7 +38,7 @@ public class MultiTCPServer {
         }
     }
 
-    // FILE SERVER  (Port 6000)
+    // FILE SERVER (Port 6000)
     public static void startFileServer() {
         try {
             ServerSocket ss = new ServerSocket(6000);
