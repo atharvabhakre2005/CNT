@@ -1,3 +1,4 @@
+package Djkstras;
 import java.util.*;
 
 public class DijkstraOSPF {
