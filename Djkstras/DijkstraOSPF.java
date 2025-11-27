@@ -1,4 +1,5 @@
 package Djkstras;
+
 import java.util.*;
 
 public class DijkstraOSPF {
@@ -8,28 +9,42 @@ public class DijkstraOSPF {
     public static void dijkstra(int[][] graph, int src) {
 
         int V = graph.length;
-        int dist[] = new int[V];
-        boolean visited[] = new boolean[V];
 
-        for (int i = 0; i < V; i++) {
-            dist[i] = INF;
-            visited[i] = false;
-        }
+        // Distance array (initially infinity)
+        int[] dist = new int[V];
+        Arrays.fill(dist, INF);
 
+        // Min-heap storing {distance, node}
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+
+        // Distance of source = 0
         dist[src] = 0;
+        pq.add(new int[] { 0, src });
 
-        for (int count = 0; count < V - 1; count++) {
+        boolean[] visited = new boolean[V];
 
-            int u = minDistance(dist, visited);
+        while (!pq.isEmpty()) {
+
+            // Extract node with minimum distance
+            int[] cur = pq.poll();
+            int d = cur[0];
+            int u = cur[1];
+
+            // Skip if already visited (outdated entry)
+            if (visited[u])
+                continue;
             visited[u] = true;
 
+            // Check all neighbors in adjacency matrix
             for (int v = 0; v < V; v++) {
-                if (!visited[v] &&
-                    graph[u][v] != 0 &&
-                    dist[u] != INF &&
-                    dist[u] + graph[u][v] < dist[v]) {
 
-                    dist[v] = dist[u] + graph[u][v];
+                // If edge exists and relaxation possible
+                if (graph[u][v] != 0 && d + graph[u][v] < dist[v]) {
+
+                    dist[v] = d + graph[u][v];
+
+                    // Push new distance into heap
+                    pq.add(new int[] { dist[v], v });
                 }
             }
         }
@@ -37,32 +52,21 @@ public class DijkstraOSPF {
         printResult(dist, src);
     }
 
-    private static int minDistance(int[] dist, boolean[] visited) {
-        int min = INF, minIndex = -1;
-
-        for (int v = 0; v < dist.length; v++) {
-            if (!visited[v] && dist[v] <= min) {
-                min = dist[v];
-                minIndex = v;
-            }
-        }
-        return minIndex;
-    }
-
     private static void printResult(int[] dist, int src) {
         System.out.println("Shortest paths from Router " + src + ":");
         for (int i = 0; i < dist.length; i++) {
-            System.out.println(src + " - " + i + "  Distance = " + dist[i]);
+            System.out.println(src + " -> " + i + "  Distance = " + dist[i]);
         }
     }
 
     public static void main(String[] args) {
+
         int graph[][] = {
-            {0, 2, 4, 0, 0},
-            {2, 0, 1, 7, 0},
-            {4, 1, 0, 3, 5},
-            {0, 7, 3, 0, 2},
-            {0, 0, 5, 2, 0}
+                { 0, 2, 4, 0, 0 },
+                { 2, 0, 1, 7, 0 },
+                { 4, 1, 0, 3, 5 },
+                { 0, 7, 3, 0, 2 },
+                { 0, 0, 5, 2, 0 }
         };
 
         int sourceRouter = 0;
