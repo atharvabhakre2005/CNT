@@ -13,7 +13,7 @@
 
 .cart-toggle-btn {
   padding: 12px 24px;
-  background: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
   border-radius: 25px;
@@ -24,9 +24,8 @@
 }
 
 .cart-toggle-btn:hover {
-  background: #764ba2;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
 }
 
 .cart-panel {
@@ -58,6 +57,13 @@
   align-items: center;
   padding: 20px;
   border-bottom: 2px solid #eee;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.cart-header h2 {
+  margin: 0;
+  color: white;
 }
 
 .close-cart {
@@ -66,6 +72,7 @@
   font-size: 1.5rem;
   cursor: pointer;
   padding: 5px 10px;
+  color: white;
 }
 
 .empty-cart {
@@ -87,6 +94,8 @@
   padding: 15px;
   border-bottom: 1px solid #eee;
   margin-bottom: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
 }
 
 .cart-item-info h4 {
@@ -113,10 +122,13 @@
   cursor: pointer;
   border-radius: 5px;
   transition: all 0.2s;
+  min-width: 30px;
 }
 
 .cart-item-actions button:hover {
-  background: #f8f9fa;
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
 }
 
 .remove-btn {
@@ -125,20 +137,26 @@
   border: none !important;
 }
 
+.remove-btn:hover {
+  background: #c82333 !important;
+}
+
 .cart-total {
   padding: 20px;
   border-top: 2px solid #eee;
+  background: #f8f9fa;
 }
 
 .cart-total h3 {
   margin: 0 0 15px 0;
   text-align: right;
+  color: #333;
 }
 
 .checkout-btn {
   width: 100%;
   padding: 15px;
-  background: #28a745;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -149,8 +167,8 @@
 }
 
 .checkout-btn:hover {
-  background: #218838;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
 }
 
 .books-grid {
@@ -202,7 +220,7 @@
 .add-to-cart-btn {
   width: 100%;
   padding: 12px;
-  background: #28a745;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -213,8 +231,8 @@
 }
 
 .add-to-cart-btn:hover {
-  background: #218838;
   transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 /* Toast Notification */
@@ -222,7 +240,7 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  background: #28a745;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
   color: white;
   padding: 15px 25px;
   border-radius: 8px;
@@ -400,12 +418,11 @@
 }
 
 .btn-confirm {
-  background: #28a745;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
   color: white;
 }
 
 .btn-confirm:hover {
-  background: #218838;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
 }

@@ -1,11 +1,11 @@
 .home-container {
-  min-height: auto;
+  min-height: 100vh;
 }
 
 .hero-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 100px 20px;
+  padding: 120px 20px;
   text-align: center;
 }
 
@@ -19,12 +19,37 @@
   margin-bottom: 20px;
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 20px;
   font-weight: 300;
+  animation: fadeInUp 0.8s ease-out 0.2s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-description {
@@ -32,6 +57,8 @@
   line-height: 1.8;
   margin-bottom: 40px;
   opacity: 0.95;
+  animation: fadeInUp 0.8s ease-out 0.4s;
+  animation-fill-mode: both;
 }
 
 .cta-button {
@@ -45,6 +72,8 @@
   font-size: 1.1rem;
   transition: all 0.3s;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease-out 0.6s;
+  animation-fill-mode: both;
 }
 
 .cta-button:hover {
@@ -79,6 +108,7 @@
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 20px;
+  color: #667eea;
 }
 
 .feature-card h3 {
@@ -125,13 +155,17 @@
 }
 
 .category-card:hover {
-  background: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   transform: scale(1.05);
   box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 80px 20px;
+  }
+
   .hero-section h1 {
     font-size: 2.5rem;
   }
@@ -140,7 +174,24 @@
     font-size: 1.2rem;
   }
 
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
   .features-section {
     padding: 40px 20px;
+  }
+
+  .featured-section {
+    padding: 40px 20px;
+  }
+
+  .featured-section h2 {
+    font-size: 2rem;
   }
 }
